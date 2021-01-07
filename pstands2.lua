@@ -64,6 +64,8 @@ if questab == true then
     end 
 end 
 
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+
 game:GetService("RunService").Heartbeat:Connect(function()
     game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end)
