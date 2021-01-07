@@ -4,7 +4,7 @@ local npcs = {
     ["Anti Cop"] = "Cop",
     ["Monkey Slaying"] = "Monkey"
 }
-
+local isanchor = false
 local Target1 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions["Quests.Accept"]
 local Target2 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions["ControlsHandler.Ability 3"]
 local Target3 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions["ControlsHandler.Summon"]
@@ -74,7 +74,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
     game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end)
 
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+
 
 local bcam = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -96,7 +96,14 @@ while _G.poop and npcspawned == nil do wait()
     end
 end
 
-while _G.poop do wait()    
+while _G.poop do wait()
+    if not isnanchored then
+        spawn(function()
+             wait(5)
+             game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+             isanchored = true
+        end)
+    end
     local npch = game.Workspace.Entities[npcs[questshit]].Humanoid.Health
     if game.Workspace.Entities:FindFirstChild(npcs[questshit]) ~= nil then
         while npch > 0 and _G.poop do wait(.2)
