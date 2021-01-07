@@ -87,11 +87,11 @@ npcspawned = game.Workspace.Entities:WaitForChild(npcs[questshit])
 while _G.poop and npcspawned == nil do wait()
     if npcs[questshit] == "Boxer" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Vecr0z.Head.CFrame
-    elselif npcs[questshit] == "Monkey" then
+    elseif npcs[questshit] == "Monkey" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Dark_listor.Head.CFrame
-    elselif npcs[questshit] == "Thug" then
+    elseif npcs[questshit] == "Thug" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Convocation.Head.CFrame
-    elselif npcs[questshit] == "Cop" then
+    elseif npcs[questshit] == "Cop" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].dartsoma.Head.CFrame
     end
 end
