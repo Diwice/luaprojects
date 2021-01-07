@@ -83,22 +83,21 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
    bcam:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
-while _G.poop do wait()
-    
-    if game.Players.LocalPlayer.Character:FindFirstChild("Stand") == nil then
-        Target3:InvokeServer(CFrame.new(0,0,0))
-    elseif game.Players.LocalPlayer.PlayerGui.MainGui.Quests.QuestList:FindFirstChild("1") == nil then
-        for i = 1, questoq do
-                Target1:InvokeServer(questshit)
-        end 
-    end
-    
+while _G.poop do wait()    
     local npch = game.Workspace.Entities[npcs[questshit]].Humanoid.Health
     if game.Workspace.Entities:FindFirstChild(npcs[questshit]) ~= nil then
         while npch > 0 and _G.poop do wait(.2)
             local npccfr = game.Workspace.Entities[npcs[questshit]].HumanoidRootPart.CFrame
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = npccfr * CFrame.new(0, heigh1, 0)
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(ugol,0,0)
+            if game.Players.LocalPlayer.Character:FindFirstChild("Stand") == nil then
+                Target3:InvokeServer(CFrame.new(0,0,0))
+            end
+            if game.Players.LocalPlayer.PlayerGui.MainGui.Quests.QuestList:FindFirstChild("1") == nil then
+                for i = 1, questoq do
+                    Target1:InvokeServer(questshit)
+                end 
+            end
             if skill6 == true then
                 Target6:InvokeServer(CFrame.new(0,0,0))
             end
