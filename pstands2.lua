@@ -12,7 +12,6 @@ local Target5 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions["Contro
 local Target6 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions["ControlsHandler.Combat"]
 local Target7 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions['Quests.Abandon']
 local Target8 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions['ControlsHandler.Ability 1']
-
 local skillt = {
   ['F'] = 3;
   ['R'] = 2;
@@ -73,8 +72,6 @@ game:GetService("RunService").Heartbeat:Connect(function()
     game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end)
 
-
-
 local bcam = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function()
    bcam:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
@@ -82,14 +79,25 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
    bcam:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
+while game.Workspace.Entities:FindFirstChild(npcs[questshit]) == nil do wait()
+    if npcs[questshit] == "Boxer" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Vecr0z.Head.CFrame
+    elseif npcs[questshit] == "Monkey" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Dark_listor.Head.CFrame
+    elseif npcs[questshit] == "Thug" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Convocation.Head.CFrame
+    elseif npcs[questshit] == "Cop" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].dartsoma.Head.CFrame
+    end
+    npcspawned = game.Workspace.Entities:FindFirstChild(npcs[questshit])
+end
+
 while _G.poop do wait()
     local npch = game.Workspace.Entities[npcs[questshit]].Humanoid.Health
         while npch > 0 and _G.poop do wait(.2)
-            spawn(function()
-                local npccfr = game.Workspace.Entities[npcs[questshit]].HumanoidRootPart.CFrame
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = npccfr * CFrame.new(0, heigh1, 0)
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(ugol,0,0)
-                end)
+            local npccfr = game.Workspace.Entities[npcs[questshit]].HumanoidRootPart.CFrame
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = npccfr * CFrame.new(0, heigh1, 0)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(ugol,0,0)
             if game.Players.LocalPlayer.Character:FindFirstChild("Stand") == nil then
                 Target3:InvokeServer(CFrame.new(0,0,0))
             end
