@@ -94,6 +94,7 @@ while _G.poop and npcspawned == nil do wait()
     elseif npcs[questshit] == "Cop" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].dartsoma.Head.CFrame
     end
+    npcspawned = game.Workspace.Entities:FindFirstChild(npcs[questshit])
 end
 
 while _G.poop do wait()
