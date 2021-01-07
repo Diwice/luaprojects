@@ -82,12 +82,20 @@ end)
 while game.Workspace.Entities:FindFirstChild(npcs[questshit]) == nil do wait()
     if npcs[questshit] == "Boxer" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Vecr0z.Head.CFrame
+        wait(4)
+        break
     elseif npcs[questshit] == "Monkey" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Dark_listor.Head.CFrame
+        wait(4)
+        break
     elseif npcs[questshit] == "Thug" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Convocation.Head.CFrame
+        wait(4)
+        break
     elseif npcs[questshit] == "Cop" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].dartsoma.Head.CFrame
+        wait(4)
+        break
     end
     npcspawned = game.Workspace.Entities:FindFirstChild(npcs[questshit])
 end
