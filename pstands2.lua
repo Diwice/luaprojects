@@ -12,21 +12,25 @@ local Target4 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions["Contro
 local Target5 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions["ControlsHandler.Ability 4"]
 local Target6 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions["ControlsHandler.Combat"]
 local Target7 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions['Quests.Abandon']
+local Target8 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions['ControlsHandler.Ability 1']
 
 local skillt = {
   ['F'] = 3;
   ['R'] = 2;
   ['T'] = 4;
+  ['E'] = 5;
   ['Click'] = 6;
 }
 local usktu = {}
 local skill2 = false
 local skill3 = false
 local skill4 = false
+local skill5 = false
 local skill6 = false
 local cd2 = false
 local cd3 = false
 local cd4 = false
+local cd5 = false
 
 local uskt = string.split(usks,',')
 for i,v in pairs(skillt) do 
@@ -43,7 +47,9 @@ for i,v in pairs(usktu) do
     elseif v == 3 then
         skill3 = true 
     elseif v == 4 then
-        skill4 = true 
+        skill4 = true
+    elseif v == 5 then
+        skill5 = true
     elseif v == 6 then
         skill6 = true
     end
@@ -64,11 +70,11 @@ if questab == true then
     end 
 end 
 
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-
 game:GetService("RunService").Heartbeat:Connect(function()
     game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end)
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 
 local bcam = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -118,6 +124,14 @@ while _G.poop do wait()
                 spawn(function()
                     wait(5)
                     cd4 = false
+                end)
+            end
+            if skill5 == true and not cd5 then
+                Target8:InvokeServer(CFrame.new(0,0,0))
+                cd5 = true 
+                spawn(function()
+                    wait(8)
+                    cd5 = false
                 end)
             end
         end
