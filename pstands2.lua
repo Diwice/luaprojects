@@ -4,7 +4,6 @@ local npcs = {
     ["Anti Cop"] = "Cop",
     ["Monkey Slaying"] = "Monkey"
 }
-local isanchor = false
 local Target1 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions["Quests.Accept"]
 local Target2 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions["ControlsHandler.Ability 3"]
 local Target3 = game:GetService("ReplicatedStorage").Rex.RemoteFunctions["ControlsHandler.Summon"]
@@ -95,10 +94,8 @@ while game.Workspace.Entities:FindFirstChild(npcs[questshit]) == nil do wait()
     end
     npcspawned = game.Workspace.Entities:FindFirstChild(npcs[questshit])
 end
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 while _G.poop do wait()
     local npch = game.Workspace.Entities[npcs[questshit]].Humanoid.Health
-    if game.Workspace.Entities:FindFirstChild(npcs[questshit]) ~= nil then
         while npch > 0 and _G.poop do wait(.2)
             spawn(function()
                 local npccfr = game.Workspace.Entities[npcs[questshit]].HumanoidRootPart.CFrame
@@ -148,6 +145,5 @@ while _G.poop do wait()
                     cd5 = false
                 end)
             end
-        end
-    end
+      end
 end
