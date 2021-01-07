@@ -83,19 +83,6 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
    bcam:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
-npcspawned = game.Workspace.Entities:WaitForChild(npcs[questshit])
-while _G.poop and npcspawned == nil do wait()
-    if npcs[questshit] == "Boxer" then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Vecr0z.Head.CFrame
-    elselif npcs[questshit] == "Monkey" then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Dark_listor.Head.CFrame
-    elselif npcs[questshit] == "Thug" then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Convocation.Head.CFrame
-    elselif npcs[questshit] == "Cop" then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].dartsoma.Head.CFrame
-    end
-end
-
 while _G.poop do wait()    
     local npch = game.Workspace.Entities[npcs[questshit]].Humanoid.Health
     if game.Workspace.Entities:FindFirstChild(npcs[questshit]) ~= nil then
