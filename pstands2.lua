@@ -100,13 +100,11 @@ while _G.poop do wait()
     local npch = game.Workspace.Entities[npcs[questshit]].Humanoid.Health
     if game.Workspace.Entities:FindFirstChild(npcs[questshit]) ~= nil then
         while npch > 0 and _G.poop do wait(.2)
-            while _G.poop do wait(.2)
-                spawn(function()
+            spawn(function()
                 local npccfr = game.Workspace.Entities[npcs[questshit]].HumanoidRootPart.CFrame
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = npccfr * CFrame.new(0, heigh1, 0)
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(ugol,0,0)
                 end)
-            end
             if game.Players.LocalPlayer.Character:FindFirstChild("Stand") == nil then
                 Target3:InvokeServer(CFrame.new(0,0,0))
             end
