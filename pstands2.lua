@@ -95,15 +95,8 @@ while game.Workspace.Entities:FindFirstChild(npcs[questshit]) == nil do wait()
     end
     npcspawned = game.Workspace.Entities:FindFirstChild(npcs[questshit])
 end
-
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 while _G.poop do wait()
-    if not isnanchored then
-        spawn(function()
-             wait(5)
-             game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-             isanchored = true
-        end)
-    end
     local npch = game.Workspace.Entities[npcs[questshit]].Humanoid.Health
     if game.Workspace.Entities:FindFirstChild(npcs[questshit]) ~= nil then
         while npch > 0 and _G.poop do wait(.2)
