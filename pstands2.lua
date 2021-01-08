@@ -65,7 +65,7 @@ if questab == true then
 	for i = 1, questoq do
 		Target7:InvokeServer(i)
 	end 
-end 
+end
 
 game:GetService("RunService").Heartbeat:Connect(function()
 	game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
@@ -161,11 +161,11 @@ local dnpc = function()
 end
 
 game:GetService("RunService").Heartbeat:connect(function()
-    watchfornpc()
 	if _G.poop then
+	    watchfornpc()		
 	    dnpc()
-		getquest()
-		standon()
-		fightoir()
+	    getquest()
+	    standon()
+	    fightoir()
 	end
 end)
