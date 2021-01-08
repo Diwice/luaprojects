@@ -147,13 +147,23 @@ local standon = function()
 	end
 end
 
+local teleportoir = function()
+    local npccfr = game.Workspace.Entities[npcs[questshit]].HumanoidRootPart.CFrame
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = npccfr * CFrame.new(0, heigh1, 0)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(ugol, 0, 0)
+end
+
+local dnpc = function()
+    local npch = game.Workspace.Entities[npcs[questshit]].Humanoid.Health
+    if npch ~= 0 then
+	    teleportoir()
+    end
+end
+
 game:GetService("RunService").Heartbeat:connect(function()
     watchfornpc()
-	local npch = game.Workspace.Entities[npcs[questshit]].Humanoid.Health
-	if npch > 0 and _G.poop then
-		local npccfr = game.Workspace.Entities[npcs[questshit]].HumanoidRootPart.CFrame
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = npccfr * CFrame.new(0, heigh1, 0)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(ugol, 0, 0)
+	if _G.poop then
+	    dnpc()
 		getquest()
 		standon()
 		fightoir()
