@@ -78,7 +78,8 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 	bcam:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
 end)
 
-while game.Workspace.Entities:FindFirstChild(npcs[questshit]) == nil do
+function watchfornpc()
+    while game.Workspace.Entities:FindFirstChild(npcs[questshit]) == nil do
 	wait()
 	if npcs[questshit] == "Boxer" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map['Interactable NPCS'].Vecr0z.Head.CFrame
@@ -97,6 +98,7 @@ while game.Workspace.Entities:FindFirstChild(npcs[questshit]) == nil do
 		wait(4)
 		break
 	end
+  end
 end
 
 function fcd()
@@ -146,6 +148,7 @@ local standon = function()
 end
 
 game:GetService("RunService").Heartbeat:connect(function()
+    watchfornpc()
 	local npch = game.Workspace.Entities[npcs[questshit]].Humanoid.Health
 	if npch > 0 and _G.poop then
 		local npccfr = game.Workspace.Entities[npcs[questshit]].HumanoidRootPart.CFrame
