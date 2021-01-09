@@ -11,14 +11,15 @@ local checkmoner = function()
 end
 
 local purchaser = function()
-    local f1 = "Rare Lootcrate"
-    local moner = checkmoner()
-    local f2 = math.floor(moner/25000)
-    local Targetoir = game:GetService("ReplicatedStorage").Rex.RemoteFunctions['ShopHandler.BuyWithYen']
-    Targetoir:InvokeServer(f1,f2)
+    if checkmoner() >= 25000 then 
+        local f1 = "Rare Lootcrate"
+        local f2 = math.floor(checkmoner()/25000)
+        local Targetoir = game:GetService("ReplicatedStorage").Rex.RemoteFunctions['ShopHandler.BuyWithYen']
+        Targetoir:InvokeServer(f1,f2)
+    end
 end 
 
-while _G.poopoir and checkmoner() >= 25000 do
+while _G.poopoir do
     purchaser()
     wait(3)
 end
