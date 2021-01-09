@@ -1,0 +1,23 @@
+local checkmoner = function()
+    local moner = game.Players.LocalPlayer.PlayerGui.MainGui.HealthBar.Yen.Text
+    local poop = string.split(moner,' ')
+    local poop1 = tostring(poop[1])
+    local poop2 = string.split(poop1,',')
+    local poop3 = ''
+    for i,v in pairs(poop2) do
+        poop3 = poop3..tostring(v)
+    end
+    return tonumber(poop3)
+end
+
+local purchaser = function()
+    local f1 = "Rare Lootcrate"
+    local f2 = math.floor(checkmoner()/25000)
+    local Targetoir = game:GetService("ReplicatedStorage").Rex.RemoteFunctions['ShopHandler.BuyWithYen']
+    Targetoir:InvokeServer(f1,f2)
+end 
+
+while _G.poopoir and checkmoner() >= 25000 do wait()
+    purchaser()
+    wait(3)
+end
