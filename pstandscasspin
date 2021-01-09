@@ -1,7 +1,7 @@
 local stringer = "Regular"
 local Targetpoo = game:GetService("ReplicatedStorage").Rex.RemoteFunctions['Slots.Roll']
 
-while _G.on do
+while _G.pooped do
     Targetpoo:InvokeServer(stringer)
     wait(5)
 end
