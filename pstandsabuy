@@ -17,7 +17,7 @@ local purchaser = function()
     Targetoir:InvokeServer(f1,f2)
 end 
 
-while _G.poopoir and checkmoner() >= 25000 do wait()
+while _G.poopoir do wait()
     purchaser()
     wait(3)
 end
