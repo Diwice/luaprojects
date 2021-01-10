@@ -53,7 +53,7 @@ local opener = function()
                     end
                 end
                 for i2,v2 in next,v:GetChildren() do
-                    if v2.Name == "Id" and tonumber(v2.Parent.Quantity.Text:match('%d+')) ~= maxqu() and v2.Text == prioritytab[priority] then
+                    if v2.Name == "Id" and tonumber(v2.Parent.Quantity.Text:match('%d+')) ~= maxqu() and v2.Text == prioritytab[priority] and sobl == 36 then
                         firesignal(v.TextButton.Activated)
                     end
                     if v2.Name == "Id" then
