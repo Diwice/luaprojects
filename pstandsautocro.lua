@@ -55,9 +55,6 @@ local opener = function()
                     if v2.Name == "Id" and tonumber(v2.Parent.Quantity.Text:match('%d+')) ~= maxqu() and v2.Text == prioritytab[priority] and sobl == 36 then
                         firesignal(v.TextButton.Activated)
                     end
-                    if v2.Name == "Id" then
-                        sobl2 = sobl2 + 1
-                    end
                 end
             end
     	end
