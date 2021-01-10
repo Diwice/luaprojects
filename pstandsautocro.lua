@@ -2,6 +2,10 @@ local waitcr = function()
     return game.Players.LocalPlayer.PlayerGui.Lootcrate.Frame.Selection:FindFirstChild('ItemTemplate')
 end
 
+local waitcr1 = function()
+    return game.Players.LocalPlayer.PlayerGui.MainGui.Inventory.ScrollingFrame:FindFirstChild(choosencrate)
+end
+
 prioritytab = string.split(itemp,',')
 priority = 1
 
@@ -88,4 +92,7 @@ while _G.pooproller do wait()
     waitforcloser()
     closer()
     wait(.3)
+    if Autostop == true and checkex ~= nil then
+        _G.pooproller = false
+    end
 end
