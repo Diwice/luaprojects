@@ -92,7 +92,7 @@ while _G.pooproller do wait()
     waitforcloser()
     closer()
     wait(.3)
-    if Autostop == true and checkex() ~= nil then
+    if Autostop == true and checkex() == nil then
         _G.pooproller = false
     end
 end
