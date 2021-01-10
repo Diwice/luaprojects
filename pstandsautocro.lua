@@ -41,6 +41,7 @@ local opener = function()
     if waitcr() ~= nil then
     	local desc = game.Players.LocalPlayer.PlayerGui.Lootcrate.Frame.Selection
     	local sobl = 0
+        local sobl2 = 0
     	for i, v in pairs(desc:GetChildren()) do
             if v:IsA("Frame") and v.Name == 'ItemTemplate' then
                 for i1,v1 in next,v:GetChildren() do
@@ -51,8 +52,16 @@ local opener = function()
                         sobl = sobl + 1
                     end
                 end
-                for i2,v2 in next,v:GetChildren() do 
-                    if v2.Name == "Id" and tonumber(v2.Parent.Quantity.Text:match('%d+')) ~= maxqu() and v2.Text == prioritytab[priority] and sobl == 36 then
+                for i1,v1 in next,v:GetChildren() do
+                    if v1.Name == "Id" and tonumber(v1.Parent.Quantity.Text:match('%d+')) == maxqu() and v1.Text == prioritytab[priority] then
+                        firesignal(v.TextButton.Activated)
+                    end
+                    if v1.Name == "Id" then
+                        sobl2 = sobl2 + 1
+                    end
+                end
+                for i3,v3 in next,v:GetChildren() do 
+                    if v3.Name == "Id" and tonumber(v3.Parent.Quantity.Text:match('%d+')) ~= maxqu() and v3.Text == prioritytab[priority] and sobl == 36 and sobl2 == 36 then
                         firesignal(v.TextButton.Activated)
                     end 
                 end
