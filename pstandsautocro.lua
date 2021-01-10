@@ -41,11 +41,10 @@ local opener = function()
     if waitcr() ~= nil then
     	local desc = game.Players.LocalPlayer.PlayerGui.Lootcrate.Frame.Selection
     	local sobl = 0
-        local sobl2 = 0
     	for i, v in pairs(desc:GetChildren()) do
             if v:IsA("Frame") and v.Name == 'ItemTemplate' then
                 for i1,v1 in next,v:GetChildren() do
-                    if v1.Name == "Id" and tonumber(v1.Parent.Quantity.Text:match('%d+')) == maxqu() and v1.Text == prioritytab[priority] then
+                    if v1.Name == "Id" and tonumber(v1.Parent.Quantity.Text:match('%d+')) == maxqu() and v1.Text == prioritytab[priority] and sobl < 36 then
                         firesignal(v.TextButton.Activated)
                     end
                     if v1.Name == "Id" then
