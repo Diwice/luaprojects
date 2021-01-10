@@ -5,7 +5,7 @@ end
 prioritytab = string.split(itemp,',')
 priority = 1
 
-local crtuse = function(...)
+local crtuse = function()
     local inventory = game.Players.LocalPlayer.PlayerGui.MainGui.Inventory.ScrollingFrame
     for i,v in next,inventory:GetChildren() do
         if v.Name == choosencrate then
