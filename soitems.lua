@@ -4,7 +4,7 @@ updateitems = function()
   itemstable = {}
   itemstable2 = {}
   for i,v in next,game.Workspace:GetChildren() do
-     if tostring(tonumber(v.Name)) == v.Name then
+     if tostring(tonumber(v.Name)) == v.Name or v:IsA("Tool") then
         local check = true
         for i1,v1 in next,v:GetDescendants() do
            if table.find(clickdetitems,v1.Name) then
@@ -23,7 +23,7 @@ updateitems = function()
              end)
            end
         end
-     end
+    end
   end
   return itemstable,itemstable2;
 end
