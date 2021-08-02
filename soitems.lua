@@ -74,11 +74,6 @@ local charactoire = function()
          game.Players.LocalPlayer.Character.LowerTorso.Root:Destroy()
          cock.Parent = game.Players.LocalPlayer.Character.LowerTorso
      end
-     Wait(.5)
-     local Pos1 =  plp.CFrame - Vector3.new(0,-20,0)
-     local Info = TweenInfo.new((plp.CFrame.Position - Pos1.Position).magnitude/320, Enum.EasingStyle.Linear);
-     local cbt = tween:Create(plp,Info,{CFrame = Pos1})
-     cbt:Play()
 end
 
 --[[noclip]]
