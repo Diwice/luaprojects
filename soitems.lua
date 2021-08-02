@@ -32,7 +32,7 @@ gotoitem = function(tablec)
    local tween = game:GetService("TweenService")
    local plp = game.Players.LocalPlayer.Character.HumanoidRootPart
    for i,v in next,tablec do
-      if getgenv().workoire then
+      if getgenv().workoire and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 then
         local trigger = false
         if v.Name == 'ClickDetector' then
           Pos = v.Parent.CFrame
@@ -97,7 +97,7 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
    print('used charactoire')
 end)
 
-while getgenv().workoire and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 do Wait(.1)
+while getgenv().workoire do Wait(.1)
    local tbl,tblsec = updateitems()
    if #tblsec ~= 0 then
       gotoitem(tblsec)
