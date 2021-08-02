@@ -14,11 +14,20 @@ updateitems = function()
               	end
            else
              pcall(function()
-                   for fat,bastard in next,v1:GetChildren() do
-                      if bastard.CFrame ~= nil then
-                         table.insert(itemstable,bastard)
-                         break
+                   if (v1.Parent ~= nil) and v1.Parent:IsA("Tool") then
+                      for stupid,fat in next,v1.Parent:GetChildren() do
+                         if fat:IsA("MeshPart") then
+                            table.insert(itemstable,fat)
+                            break
+                         end
                       end
+                   else
+                      for fat1,bastard in next,v1:GetChildren() do
+                         if bastard:IsA("MeshPart") then
+                            table.insert(itemstable,bastard)
+                            break
+                         end
+                     end
                   end
               end)
            end
@@ -39,16 +48,27 @@ local function ChangePosition(Pos)
     return Main
 end
 
+local checkshells = function(parentcb)
+   if parentcb.Name ~= "Shell" and getgenv().ignoreshells then
+      return true
+   elseif not(getgenv().ignoreshells) then
+      return true
+   end
+end
+
+
 local gotoitem = function(tablec)
    for i4,v4 in next,tablec do
       game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
       if game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 and getgenv().workoire then
-         if v4.Name == 'ClickDetector' then
-            ChangePosition(v4.Parent.CFrame).Completed:Wait()
-            Wait(.5)
-            fireclickdetector(v4)
-         else
-            ChangePosition(v4.CFrame).Completed:Wait()
+         if (v4.Parent ~= nil) and checkshells(v4.Parent) then
+            if v4.Name == 'ClickDetector' then
+               ChangePosition(v4.Parent.CFrame).Completed:Wait()
+               Wait(.5)
+               fireclickdetector(v4)
+            else
+               ChangePosition(v4.CFrame).Completed:Wait()
+            end
          end
       end
    end
