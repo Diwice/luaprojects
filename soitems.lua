@@ -92,7 +92,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
-   wait(.5)
+   print('wait for charactoire')
    charactoire()
    print('used charactoire')
 end)
