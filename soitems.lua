@@ -34,7 +34,8 @@ end
 
 gotoitem = function(tablec)
    for i,v in next,tablec do
-      if getgenv().workoire and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") ~= nil and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 then
+      game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+      if getgenv().workoire and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 then
         local tween = game:GetService("TweenService")
         local plp = game.Players.LocalPlayer.Character.HumanoidRootPart
         local trigger = false
@@ -59,6 +60,7 @@ end
 --[[invis function]]
 
 local charactoire = function()
+     game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
      local tween = game:GetService("TweenService")
      local plp = game.Players.LocalPlayer.Character.HumanoidRootPart
      local Pos1 = plp.CFrame - Vector3.new(0,20,0)
