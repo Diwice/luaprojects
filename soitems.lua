@@ -92,11 +92,14 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
-   wait(.5)
+   Wait(.5)
    charactoire()
 end)
 
 while getgenv().workoire and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 do Wait(.1)
+   if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+      repeat Wait() until game.Players.LocalPlayer.Character.Humanoid.Health ~= 0
+   end
    local tbl,tblsec = updateitems()
    if #tblsec ~= 0 then
       gotoitem(tblsec)
