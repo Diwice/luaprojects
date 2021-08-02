@@ -50,7 +50,7 @@ gotoitem = function(tablec)
         cbt:Play()
         cbt.Completed:Wait()
         if trigger then
-           Wait(.4)
+           Wait(.8)
            fireclickdetector(v)
         end
      end
