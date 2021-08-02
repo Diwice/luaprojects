@@ -1,4 +1,4 @@
-local clickdetitems = {'Mask','Ceasers'}
+local clickdetitems = {'Mask','Ceasers'} --[[insert items with click detectors]]
 
 --[[get items function (creates 2 separate tables for click detector items and non cd items)]]
 
@@ -84,6 +84,7 @@ end
 --[[noclip]]
 
 game.RunService.Stepped:Connect(function()
+    game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
     local Humanoid = game.Players.LocalPlayer.Character:FindFirstChild('Humanoid');
     if Humanoid and getgenv().workoire then
         Humanoid:ChangeState(11);
