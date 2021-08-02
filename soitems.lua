@@ -1,5 +1,7 @@
 local clickdetitems = {'Mask','Ceasers'}
 
+--[[get items function (creates 2 separate tables for click detector items and non cd items)]]
+
 updateitems = function()
   itemstable = {}
   itemstable2 = {}
@@ -28,6 +30,8 @@ updateitems = function()
   return itemstable,itemstable2;
 end
 
+--[[tween tp function]]
+
 gotoitem = function(tablec)
    for i,v in next,tablec do
       if getgenv().workoire and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") ~= nil and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 then
@@ -52,6 +56,8 @@ gotoitem = function(tablec)
   end
 end
 
+--[[invis function]]
+
 local charactoire = function()
      local tween = game:GetService("TweenService")
      local plp = game.Players.LocalPlayer.Character.HumanoidRootPart
@@ -73,6 +79,8 @@ local charactoire = function()
      cbt:Play()
 end
 
+--[[noclip]]
+
 game.RunService.Stepped:Connect(function()
     local Humanoid = game.Players.LocalPlayer.Character:FindFirstChild('Humanoid');
     if Humanoid and getgenv().workoire then
@@ -80,9 +88,13 @@ game.RunService.Stepped:Connect(function()
     end;
 end);
 
+--[[invis on execute]]
+
 if getgenv().workoire then
  charactoire()
 end
+
+--[[anti-afk]]
 
 local bcam = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -91,10 +103,16 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     bcam:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
 end)
 
+--[[invis on respawn]]
+
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
-   Wait(.5)
-   charactoire()
+   if getgenv().workoire then
+      Wait(.5)
+      charactoire()
+   end
 end)
+
+--[[main loop]]
 
 while getgenv().workoire do Wait(.1)
    local tbl,tblsec = updateitems()
