@@ -96,10 +96,7 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function()
    charactoire()
 end)
 
-while getgenv().workoire and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 do Wait(.1)
-   if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
-      repeat Wait() until game.Players.LocalPlayer.Character.Humanoid.Health ~= 0
-   end
+while getgenv().workoire do Wait(.1)
    local tbl,tblsec = updateitems()
    if #tblsec ~= 0 then
       gotoitem(tblsec)
