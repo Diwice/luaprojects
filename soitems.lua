@@ -10,7 +10,6 @@ updateitems = function()
                   for i2,v2 in next,v1:GetDescendants() do
                      if v2.Name == 'ClickDetector' then
                         table.insert(itemstable2,v2)
-                        print("NIGGA")
                      end
               	end
            else
