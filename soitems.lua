@@ -1,5 +1,3 @@
-local clickdetitems = {'Mask','Ceasers'} --[[insert items with click detectors]]
-
 --[[get items function (creates 2 separate tables for click detector items and non cd items)]]
 
 updateitems = function()
@@ -7,54 +5,54 @@ updateitems = function()
   itemstable2 = {}
   for i,v in next,game.Workspace:GetChildren() do
      if tostring(tonumber(v.Name)) == v.Name or v:IsA("Tool") then
-        local check = true
-        for i1,v1 in next,v:GetDescendants() do
-           if table.find(clickdetitems,v1.Name) then
-                  for i2,v2 in next,v1:GetChildren() do
-                     if v.Name == 'ClickDetector' then
+        for i1,v1 in next,v:GetChildren() do
+           if table.find(clickdetitems,v1.Name) and not(v1:IsA("Tool")) then
+                  for i2,v2 in next,v1:GetDescendants() do
+                     if v2.Name == 'ClickDetector' then
                         table.insert(itemstable2,v2)
+                        print("NIGGA")
                      end
               	end
-              break
            else
              pcall(function()
-                if v1.CFrame ~= nil and (check) then
-                   table.insert(itemstable,v1)
-                   check = false
-                end
-             end)
+                   for fat,bastard in next,v1:GetChildren() do
+                      if bastard.CFrame ~= nil then
+                         table.insert(itemstable,bastard)
+                         break
+                      end
+                  end
+              end)
            end
         end
-    end
+     end
   end
   return itemstable,itemstable2;
 end
 
---[[tween tp function]]
+--[[tween tp functions]]
 
-gotoitem = function(tablec)
-   for i,v in next,tablec do
+local function ChangePosition(Pos)
+    local Tween = game:GetService("TweenService");
+    local HumanoidRoot = game.Players.LocalPlayer.Character.HumanoidRootPart;
+    local Info = TweenInfo.new((HumanoidRoot.CFrame.Position - Pos.Position).magnitude/300, Enum.EasingStyle.Linear);    
+    local Main = Tween:Create(HumanoidRoot,Info,{CFrame = Pos})    
+    Main:Play()  
+    return Main
+end
+
+local gotoitem = function(tablec)
+   for i4,v4 in next,tablec do
       game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-      if getgenv().workoire and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 then
-        local tween = game:GetService("TweenService")
-        local plp = game.Players.LocalPlayer.Character.HumanoidRootPart
-        local trigger = false
-        if v.Name == 'ClickDetector' then
-          Pos = v.Parent.CFrame
-          trigger = true
-        else
-          Pos = v.CFrame
-        end
-        local Info = TweenInfo.new((plp.CFrame.Position - Pos.Position).magnitude/300, Enum.EasingStyle.Linear);
-        local cbt = tween:Create(plp,Info,{CFrame = Pos})
-        cbt:Play()
-        cbt.Completed:Wait()
-        if trigger then
-           Wait(.8)
-           fireclickdetector(v)
-        end
-     end
-  end
+      if game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 and getgenv().workoire then
+         if v4.Name == 'ClickDetector' then
+            ChangePosition(v4.Parent.CFrame).Completed:Wait()
+            Wait(.5)
+            fireclickdetector(v4)
+         else
+            ChangePosition(v4.CFrame).Completed:Wait()
+         end
+      end
+   end
 end
 
 --[[invis function]]
