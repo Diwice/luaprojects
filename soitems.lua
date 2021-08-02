@@ -93,6 +93,7 @@ end)
 
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
    print('wait for charactoire')
+   wait(.5)
    charactoire()
    print('used charactoire')
 end)
