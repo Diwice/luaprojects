@@ -80,13 +80,8 @@ game.RunService.Stepped:Connect(function()
     end;
 end);
 
-if getgenv().launches == nil and getgenv().workoire then
-  getgenv().launches = 0
-end
-
-if launches < 1 and getgenv().workoire then
+if getgenv().workoire then
  charactoire()
- getgenv().launches += 1
 end
 
 local bcam = game:GetService("VirtualUser")
