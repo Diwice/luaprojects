@@ -29,10 +29,10 @@ updateitems = function()
 end
 
 gotoitem = function(tablec)
-   local tween = game:GetService("TweenService")
-   local plp = game.Players.LocalPlayer.Character.HumanoidRootPart
    for i,v in next,tablec do
       if getgenv().workoire and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 then
+        local tween = game:GetService("TweenService")
+        local plp = game.Players.LocalPlayer.Character.HumanoidRootPart
         local trigger = false
         if v.Name == 'ClickDetector' then
           Pos = v.Parent.CFrame
