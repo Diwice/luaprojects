@@ -93,6 +93,7 @@ end)
 
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
    charactoire()
+   print('used charactoire')
 end)
 
 while getgenv().workoire do Wait(.1)
