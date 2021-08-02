@@ -92,11 +92,12 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
+   wait(.5)
    charactoire()
    print('used charactoire')
 end)
 
-while getgenv().workoire do Wait(.1)
+while getgenv().workoire and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 do Wait(.1)
    local tbl,tblsec = updateitems()
    if #tblsec ~= 0 then
       gotoitem(tblsec)
