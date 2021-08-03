@@ -68,6 +68,7 @@ local gotoitem = function(tablec)
                fireclickdetector(v4)
             else
                ChangePosition(v4.CFrame).Completed:Wait()
+               Wait(.3)
             end
          end
       end
@@ -91,6 +92,7 @@ local charactoire = function()
          game.Players.LocalPlayer.Character.LowerTorso.Root:Destroy()
          cock.Parent = game.Players.LocalPlayer.Character.LowerTorso
      end
+     Wait(.5)
 end
 
 --[[noclip]]
