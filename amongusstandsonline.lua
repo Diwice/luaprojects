@@ -13,11 +13,27 @@ local invis = function()
      cbt:Play()
      cbt.Completed:Wait()
      Wait(.5)
+
      if game.Players.LocalPlayer.Character:FindFirstChild('LowerTorso') then
          local cock = game.Players.LocalPlayer.Character.LowerTorso.Root:Clone()
          game.Players.LocalPlayer.Character.LowerTorso.Root:Destroy()
          cock.Parent = game.Players.LocalPlayer.Character.LowerTorso
      end
+
+     if (getgenv().hidestand) and game.Players.LocalPlayer.Character:FindFirstChild("Stand") then
+        if game.Players.LocalPlayer.Character.Stand:FindFirstChild('LowerTorso') then
+           local cock = game.Players.LocalPlayer.Character.Stand.LowerTorso.Root:Clone()
+           game.Players.LocalPlayer.Character.Stand.LowerTorso.Root:Destroy()
+           cock.Parent = game.Players.LocalPlayer.Character.Stand.LowerTorso
+        end
+     end
+
+     if (getgenv().hidestandname) and game.Players.LocalPlayer.Character:FindFirstChild("Stand") and game.Players.LocalPlayer.Character.Stand.Head:FindFirstChild("Name2") then
+        local cock = game.Players.LocalPlayer.Character.Stand.Head.Name2.T:Clone()
+        game.Players.LocalPlayer.Character.Stand.Head.Name2.T:Destroy()
+        cock.Parent = game.Players.LocalPlayer.Character.Stand.Head.Name2
+     end
+
      local Pos1 = plp.CFrame - Vector3.new(0,-20,0)
      local Info = TweenInfo.new((plp.CFrame.Position - Pos1.Position).magnitude/320, Enum.EasingStyle.Linear);
      local cbt = tween:Create(plp,Info,{CFrame = Pos1})
