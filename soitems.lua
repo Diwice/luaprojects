@@ -37,6 +37,17 @@ updateitems = function()
   return itemstable,itemstable2;
 end
 
+--[[ts check function]]
+
+local istimestop = function()
+   game.Players.LocalPlayer.Character:WaitForChild("Head")
+   if game.Players.LocalPlayer.Character.Head.Anchored == false then
+      return false
+   else
+      return true
+   end
+end
+
 --[[tween tp functions]]
 
 local function ChangePosition(Pos)
@@ -60,7 +71,7 @@ end
 local gotoitem = function(tablec)
    for i4,v4 in next,tablec do
       game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-      if game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 and getgenv().workoire then
+      if game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 and getgenv().workoire and not(istimestop()) then
          if (v4.Parent ~= nil) and checkshells(v4.Parent) then
             if v4.Name == 'ClickDetector' then
                ChangePosition(v4.Parent.CFrame).Completed:Wait()
@@ -68,7 +79,7 @@ local gotoitem = function(tablec)
                fireclickdetector(v4)
             else
                ChangePosition(v4.CFrame).Completed:Wait()
-               Wait(.3)
+               Wait(.05)
             end
          end
       end
