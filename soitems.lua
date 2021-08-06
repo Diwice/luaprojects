@@ -89,7 +89,7 @@ local gotoitem = function(tablec)
 end
 
 coroutine.wrap(function()
-while getgenv().workoire do
+while getgenv().workoire do wait(.1)
    if bcde ~= nil and istimestop() then
       repeat 
       Wait() 
