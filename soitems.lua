@@ -81,7 +81,7 @@ local gotoitem = function(tablec)
                bcde = ChangePosition(v4.CFrame)   
                bcde:Play()
                bcde.Completed:Wait()         
-               Wait(.2)
+               Wait(.3)
             end
          end
       end
