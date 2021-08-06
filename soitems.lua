@@ -53,7 +53,7 @@ end
 local ChangePosition = function(Pos)
     local Tween = game:GetService("TweenService");
     local HumanoidRoot = game.Players.LocalPlayer.Character.HumanoidRootPart;
-    local Info = TweenInfo.new((HumanoidRoot.CFrame.Position - Pos.Position).magnitude/280, Enum.EasingStyle.Linear);    
+    local Info = TweenInfo.new((HumanoidRoot.CFrame.Position - Pos.Position).magnitude/getgenv().tweenspeed, Enum.EasingStyle.Linear);    
     local Main = Tween:Create(HumanoidRoot,Info,{CFrame = Pos})    
     return Main
 end
@@ -81,7 +81,7 @@ local gotoitem = function(tablec)
                bcde = ChangePosition(v4.CFrame)   
                bcde:Play()
                bcde.Completed:Wait()         
-               Wait(.3)
+               Wait(.2)
             end
          end
       end
