@@ -50,12 +50,11 @@ end
 
 --[[tween tp functions]]
 
-local function ChangePosition(Pos)
+local ChangePosition = function(Pos)
     local Tween = game:GetService("TweenService");
     local HumanoidRoot = game.Players.LocalPlayer.Character.HumanoidRootPart;
-    local Info = TweenInfo.new((HumanoidRoot.CFrame.Position - Pos.Position).magnitude/300, Enum.EasingStyle.Linear);    
+    local Info = TweenInfo.new((HumanoidRoot.CFrame.Position - Pos.Position).magnitude/280, Enum.EasingStyle.Linear);    
     local Main = Tween:Create(HumanoidRoot,Info,{CFrame = Pos})    
-    Main:Play()  
     return Main
 end
 
@@ -67,24 +66,38 @@ local checkshells = function(parentcb)
    end
 end
 
-
 local gotoitem = function(tablec)
    for i4,v4 in next,tablec do
       game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-      if game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 and getgenv().workoire and not(istimestop()) then
-         if (v4.Parent ~= nil) and checkshells(v4.Parent) then
+      if game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 and getgenv().workoire then
+         if (v4.Parent ~= nil) and checkshells(v4.Parent) and not(istimestop()) then
             if v4.Name == 'ClickDetector' then
-               ChangePosition(v4.Parent.CFrame).Completed:Wait()
+               bcde = ChangePosition(v4.Parent.CFrame)
+               bcde:Play()
+               bcde.Completed:Wait()
                Wait(.5)
                fireclickdetector(v4)
             else
-               ChangePosition(v4.CFrame).Completed:Wait()
-               Wait(.05)
+               bcde = ChangePosition(v4.CFrame)   
+               bcde:Play()
+               bcde.Completed:Wait()         
+               Wait(.2)
             end
          end
       end
    end
 end
+
+coroutine.wrap(function()
+while getgenv().workoire do
+   if bcde ~= nil and istimestop() then
+      repeat 
+      Wait() 
+      bcde:Cancel() 
+      until not(istimestop())
+   end
+end
+end)();
 
 --[[invis function]]
 
@@ -110,11 +123,11 @@ end
 
 game.RunService.Stepped:Connect(function()
     game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
-    local Humanoid = game.Players.LocalPlayer.Character:FindFirstChild('Humanoid');
+    local Humanoid = game.Players.LocalPlayer.Character:FindFirstChild('Humanoid')
     if Humanoid and getgenv().workoire then
-        Humanoid:ChangeState(11);
-    end;
-end);
+        Humanoid:ChangeState(11)
+    end
+end)
 
 --[[invis on execute]]
 
